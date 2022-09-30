@@ -16,6 +16,12 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def favorites
+    @user = User.find(params[:id])
+    favorites= Favorite.where(user_id: @user.id).pluck(:book_id)
+    @favorite_books = Book.find(favorites)
+  end
+
   def following
     user = User.find(params[:id])
     @users = user.following

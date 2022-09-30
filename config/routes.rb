@@ -14,5 +14,8 @@ end
       resource :relationships, only: [:create, :destroy]
     get :following, on: :member
     get :follower, on: :member
+    member do
+    get :favorites
+  end
 end
 end
